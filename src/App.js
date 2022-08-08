@@ -1,23 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import React from "react";
+import Header from "./components/Header";
+import Categories from "./components/Categories";
+import Sort from "./components/Sort";
+import Card from "./components/Card";
+
+const data = [
+  {
+    title: 'Cheesburger',
+    price: '740'
+  },
+  {
+    title: 'Mexican',
+    price: '530'
+  },
+  {
+    title: 'Margarita',
+    price: '390'
+  },
+  {
+    title: 'Pepperoni',
+    price: '750'
+  },
+  {
+    title: 'Diablo',
+    price: '700'
+  },
+  {
+    title: 'Veggi',
+    price: '400'
+  }
+
+]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="wrapper">
+      <Header />
+      <div class="content">
+        <div class="container">
+          <div class="content__top">
+            <Categories />
+            <Sort />
+          </div>
+          <h2 class="content__title">Все пиццы</h2>
+          <div class="content__items">
+
+            {data.map((item) =>  (
+                <Card
+                title={item.title}
+                price={item.price}
+                />
+                ))
+              }
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
