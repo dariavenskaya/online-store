@@ -1,26 +1,12 @@
+import { useState } from "react";
+
 function Card (props) {
-    return (
-        <div class="pizza-block">
-        <img
-          class="pizza-block__image"
-          src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
-          alt="Pizza"
-        />
-        <h4 class="pizza-block__title">{props.title}</h4>
-        <div class="pizza-block__selector">
-          <ul>
-            <li class="active">тонкое</li>
-            <li>традиционное</li>
-          </ul>
-          <ul>
-            <li class="active">26 см.</li>
-            <li>30 см.</li>
-            <li>40 см.</li>
-          </ul>
-        </div>
-        <div class="pizza-block__bottom">
-          <div class="pizza-block__price">от {props.price} ₽</div>
-          <div class="button button--outline button--add">
+
+    function Counter() {
+        const [count, setCount] = useState(0);
+      
+        return (
+            <div className="button button--outline button--add" onClick={() => setCount(count + 1)}>
             <svg
               width="12"
               height="12"
@@ -34,8 +20,33 @@ function Card (props) {
               />
             </svg>
             <span>Добавить</span>
-            <i>2</i>
+            <i>{count}</i>
           </div>
+        );
+      }
+
+    return (
+        <div className="pizza-block">
+        <img
+          className="pizza-block__image"
+          src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+          alt="Pizza"
+        />
+        <h4 className="pizza-block__title">{props.title}</h4>
+        <div className="pizza-block__selector">
+          <ul>
+            <li className="active">тонкое</li>
+            <li>традиционное</li>
+          </ul>
+          <ul>
+            <li className="active">26 см.</li>
+            <li>30 см.</li>
+            <li>40 см.</li>
+          </ul>
+        </div>
+        <div className="pizza-block__bottom">
+          <div className="pizza-block__price">от {props.price} ₽</div>
+   <Counter />
         </div>
       </div>
     );
