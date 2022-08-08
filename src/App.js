@@ -9,32 +9,32 @@ const data = [
   {
     id: 1,
     title: 'Cheesburger',
-    price: '740'
+    price: '13'
   },
   {
     id: 2,
     title: 'Mexican',
-    price: '530'
+    price: '8'
   },
   {
     id: 3,
     title: 'Margarita',
-    price: '390'
+    price: '7'
   },
   {
     id: 4,
     title: 'Pepperoni',
-    price: '750'
+    price: '12'
   },
   {
     id: 5,
     title: 'Diablo',
-    price: '700'
+    price: '10'
   },
   {
     id: 6,
     title: 'Veggi',
-    price: '400'
+    price: '8'
   }
 ]
 

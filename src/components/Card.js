@@ -45,7 +45,7 @@ function Card (props) {
           </ul>
         </div>
         <div className="pizza-block__bottom">
-          <div className="pizza-block__price">от {props.price} ₽</div>
+          <div className="pizza-block__price">от {props.price} $</div>
    <Counter />
         </div>
       </div>
