@@ -1,9 +1,9 @@
 //variables
 
 $black: #232323;
-$background: #f1e8cf;
+$background: #7d879c;
 $gray-line: #f6f6f6;
-$orange: #fe5f1e;
+$highlightes: #2f53a1;
 
 $container-width: 90%;
 
@@ -24,6 +24,7 @@ li{
     max-width: 1400px;
 }
 .content {
+  user-select: none;  
     padding: 40px 0;
   
     &__title {
@@ -223,7 +224,7 @@ li{
     
             &:last-of-type {
               b {
-                color: $orange;
+                color: $highlightes;
               }
             }
           }
@@ -320,7 +321,7 @@ li{
   .button {
     display: inline-block;
     user-select: none;  
-    background-color: $orange;
+    background-color: $highlightes;
     border-radius: 30px;
     padding: 10px 20px;
     min-width: 100px;
@@ -342,11 +343,11 @@ li{
     }
   
     &:hover {
-      background-color: darken($orange, 8%);
+      background-color: darken($highlightes, 8%);
     }
   
     &:active {
-      background-color: darken($orange, 12%);
+      background-color: darken($highlightes, 12%);
       transform: translateY(1px);
     }
   
@@ -372,20 +373,20 @@ li{
   
     &--outline {
       background-color: #fff;
-      border-color: $orange;
+      border-color: $highlightes;
       &,
       span {
-        color: $orange;
+        color: $highlightes;
       }
   
       svg {
         path {
-          fill: $orange;
+          fill: $highlightes;
         }
       }
   
       &:hover {
-        background-color: $orange;
+        background-color: $highlightes;
   
         &,
         span {
@@ -400,7 +401,7 @@ li{
       }
   
       &:active {
-        background-color: darken($orange, 8%);
+        background-color: darken($highlightes, 8%);
       }
     }
   
@@ -425,14 +426,14 @@ li{
       &:hover {
         i {
           background-color: #fff;
-          color: $orange;
+          color: $highlightes;
         }
       }
   
       i {
         display: inline-block;
         border-radius: 30px;
-        background-color: $orange;
+        background-color: $highlightes;
         color: #fff;
         font-weight: 600;
         width: 22px;
@@ -530,7 +531,7 @@ li{
       }
   
       p {
-        color: #7b7b7b;
+        color: $background;
       }
     }
   }
@@ -549,6 +550,8 @@ li{
   
     &__image {
       width: 260px;
+      height: 260px;
+      border-radius: 5px;
     }
   
     &__title {
@@ -623,8 +626,8 @@ li{
       }
   
       span {
-        color: $orange;
-        border-bottom: 1px dashed $orange;
+        color: $highlightes;
+        border-bottom: 1px dashed $highlightes;
         cursor: pointer;
       }
     }
@@ -645,12 +648,12 @@ li{
   
           &.active,
           &:hover {
-            background: rgba(254, 95, 30, 0.05);
+            background: #2f53a116;;
           }
   
           &.active {
             font-weight: bold;
-            color: $orange;
+            color: $highlightes;
           }
         }
       }

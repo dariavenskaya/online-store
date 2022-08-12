@@ -4,39 +4,7 @@ import Header from "./components/Header";
 import Categories from "./components/Categories";
 import Sort from "./components/Sort";
 import Card from "./components/Card";
-
-const data = [
-  {
-    id: 1,
-    title: 'Cheesburger',
-    price: '13'
-  },
-  {
-    id: 2,
-    title: 'Mexican',
-    price: '8'
-  },
-  {
-    id: 3,
-    title: 'Margarita',
-    price: '7'
-  },
-  {
-    id: 4,
-    title: 'Pepperoni',
-    price: '12'
-  },
-  {
-    id: 5,
-    title: 'Diablo',
-    price: '10'
-  },
-  {
-    id: 6,
-    title: 'Veggi',
-    price: '8'
-  }
-]
+import data from './data.json'
 
 function App() {
   return (
@@ -54,8 +22,11 @@ function App() {
             {data.map((item) =>  (
                 <Card
                 key={item.id}
+                imgURL={item.imgURL}
+                sizes={item.sizes}
                 title={item.title}
                 price={item.price}
+                colors={item.colors}
                 />
                 ))
               }

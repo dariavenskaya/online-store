@@ -2,6 +2,11 @@ import { useState } from "react";
 
 function Card (props) {
 
+  const colorNames = ['black', 'white']
+  const [activeColor, setActiveColor] = useState(0);
+  const [activeSize, setActiveSize] = useState(0);
+
+
     function Counter() {
         const [count, setCount] = useState(0);
       
@@ -19,7 +24,7 @@ function Card (props) {
                 fill="white"
               />
             </svg>
-            <span>Добавить</span>
+            <span>Add to cart</span>
             <i>{count}</i>
           </div>
         );
@@ -29,19 +34,23 @@ function Card (props) {
         <div className="pizza-block">
         <img
           className="pizza-block__image"
-          src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
-          alt="Pizza"
+          src={props.imgURL}
+          alt="product"
         />
         <h4 className="pizza-block__title">{props.title}</h4>
         <div className="pizza-block__selector">
           <ul>
-            <li className="active">тонкое</li>
-            <li>традиционное</li>
+          {
+              props.colors.map((color) => 
+                <li onClick={() => setActiveColor(color)} className={activeColor === color ? 'active' : ''}>{colorNames[color]}</li>
+              )}
+
           </ul>
           <ul>
-            <li className="active">26 см.</li>
-            <li>30 см.</li>
-            <li>40 см.</li>
+            {
+              props.sizes.map((size, i) => 
+                <li onClick={() => setActiveSize(i)} className={activeSize === i ? 'active' : ''}>{size}</li>
+              )}
           </ul>
         </div>
         <div className="pizza-block__bottom">
