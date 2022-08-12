@@ -5,20 +5,14 @@ function Categories() {
   const [activeIndex, setActiveIndex] = React.useState(0);
 
   const categories = [
-    'All', 'Meat', 'Vegetarian', 'Grill', 'Spicy', 'Closed'
-  ]
-
-  const onClickCategory = (index) => {
-    setActiveIndex(index);
-  }
+    'All', 'Women', 'Men', 'Accesories', 'Kids' ]
 
   return (
     <>
       <div className="categories">
         <ul>
-
           { categories.map(( value, i )=> 
-          <li onClick={()=>onClickCategory(i)} 
+          <li key={i} onClick={()=>setActiveIndex(i)} 
           className={activeIndex === i ? 'active' : ''}>{value}</li>)
           }
         </ul>

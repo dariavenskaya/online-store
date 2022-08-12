@@ -20,14 +20,7 @@ function App() {
           <div className="content__items">
 
             {data.map((item) =>  (
-                <Card
-                key={item.id}
-                imgURL={item.imgURL}
-                sizes={item.sizes}
-                title={item.title}
-                price={item.price}
-                colors={item.colors}
-                />
+                <Card key={item.id} {...item} />
                 ))
               }
           </div>

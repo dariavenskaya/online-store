@@ -41,15 +41,19 @@ function Card (props) {
         <div className="pizza-block__selector">
           <ul>
           {
-              props.colors.map((color) => 
-                <li onClick={() => setActiveColor(color)} className={activeColor === color ? 'active' : ''}>{colorNames[color]}</li>
-              )}
-
+            props.colors.map((color) => 
+              <li 
+                key={color} 
+                onClick={() => setActiveColor(color)} 
+                className={activeColor === color ? 'active' : ''}>
+                {colorNames[color]}
+              </li>
+          )}
           </ul>
           <ul>
             {
               props.sizes.map((size, i) => 
-                <li onClick={() => setActiveSize(i)} className={activeSize === i ? 'active' : ''}>{size}</li>
+                <li key={i} onClick={() => setActiveSize(i)} className={activeSize === i ? 'active' : ''}>{size}</li>
               )}
           </ul>
         </div>
