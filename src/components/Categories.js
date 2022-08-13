@@ -3,9 +3,7 @@ import React from "react";
 function Categories() {
   
   const [activeIndex, setActiveIndex] = React.useState(0);
-
-  const categories = [
-    'All', 'Women', 'Men', 'Accesories', 'Kids' ]
+  const categories = ['All', 'Women', 'Men', 'Accesories', 'Kids' ]
 
   return (
     <>
@@ -13,8 +11,7 @@ function Categories() {
         <ul>
           { categories.map(( value, i )=> 
           <li key={i} onClick={()=>setActiveIndex(i)} 
-          className={activeIndex === i ? 'active' : ''}>{value}</li>)
-          }
+          className={activeIndex === i ? 'active' : ''}>{value}</li>)}
         </ul>
       </div>
     </>

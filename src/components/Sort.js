@@ -29,8 +29,7 @@ function Sort() {
           <b>Sort by:</b>
           <span onClick={() => setOpen(!open)}>{sortSelected}</span>
         </div>
-        {
-          open && <div className="sort__popup">
+        {open && <div className="sort__popup">
           <ul>
           {
             sorts.map((sort, i) => 
@@ -39,12 +38,9 @@ function Sort() {
                 onClick={() => onClickListItem(i)} 
                 className={selected === i ? 'active' : ''}>
                 {sort}
-              </li>
-          )}
+              </li>)}
           </ul>
-        </div>
-
-        }
+        </div>}
       </div>
     </>
   );

@@ -6,7 +6,6 @@ function Card (props) {
   const [activeColor, setActiveColor] = useState(0);
   const [activeSize, setActiveSize] = useState(0);
 
-
     function Counter() {
         const [count, setCount] = useState(0);
       
@@ -35,8 +34,7 @@ function Card (props) {
         <img
           className="pizza-block__image"
           src={props.imgURL}
-          alt="product"
-        />
+          alt="product"/>
         <h4 className="pizza-block__title">{props.title}</h4>
         <div className="pizza-block__selector">
           <ul>
@@ -59,7 +57,7 @@ function Card (props) {
         </div>
         <div className="pizza-block__bottom">
           <div className="pizza-block__price">от {props.price} $</div>
-   <Counter />
+          <Counter />
         </div>
       </div>
     );
