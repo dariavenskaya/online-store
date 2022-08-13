@@ -1,19 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <>
       <div className="header">
         <div className="container">
-          <div className="header__logo">
-            <img width="55" src="img/logo.svg" alt="Pizza logo" />
-            <div>
-              <h1>React Store</h1>
-              <p>Find what suits you best.</p>
+          <Link style={{textDecoration: 'none'}} to="/">
+            <div  className="header__logo">
+              <img width="55" src="img/logo.svg" alt="Pizza logo" />
+              <div>
+                <h1>React Store</h1>
+                <p>Find what suits you best.</p>
+              </div>
             </div>
-          </div>
+          </Link>
           <div className="header__cart">
-            <a href="/cart.html" className="button button--cart">
+            <Link to="/cart" className="button button--cart">
               <span>520 ₽</span>
               <div className="button__delimiter"></div>
               <svg
@@ -42,7 +45,7 @@ function Header() {
                   strokeLinejoin="round"/>
               </svg>
               <span>3</span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
