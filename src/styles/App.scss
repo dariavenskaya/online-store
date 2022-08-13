@@ -463,6 +463,7 @@ li{
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 20px;
 }
   .categories {
     ul {
@@ -536,11 +537,7 @@ li{
     width: 280px;
     text-align: center;
     margin-bottom: 65px;
-  
-    &:not(:nth-of-type(4n)) {
-      margin-right: 35px;
-    }
-  
+    
     &__image {
       width: 260px;
       height: 260px;
