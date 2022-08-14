@@ -1,16 +1,19 @@
 import React from "react";
 
-function Sort() {
-
+function Sort({ value, onClickSort }) {
   const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(0);
-  const sorts = ['most relevant', 'name', 'price'];
-  const sortSelected = sorts[selected];
+  const sorts = [
+    { name: "popular first", sort: "rating&order=desc" },
+    { name: "name (A-Z)", sort: "title&order=asc" },
+    { name: "name (Z-A)", sort: "title&order=desc" },
+    { name: "price(desc)", sort: "price&order=desc" },
+    { name: "price(asc)", sort: "price&order=asc" },
+  ];
 
   const onClickListItem = (i) => {
-    setSelected(i);
-    setOpen(false)
-  }
+    onClickSort(i);
+    setOpen(false);
+  };
 
   return (
     <>
@@ -24,23 +27,26 @@ function Sort() {
             xmlns="http://www.w3.org/2000/svg">
             <path
               d="M10 5C10 5.16927 9.93815 5.31576 9.81445 5.43945C9.69075 5.56315 9.54427 5.625 9.375 5.625H0.625C0.455729 5.625 0.309245 5.56315 0.185547 5.43945C0.061849 5.31576 0 5.16927 0 5C0 4.83073 0.061849 4.68424 0.185547 4.56055L4.56055 0.185547C4.68424 0.061849 4.83073 0 5 0C5.16927 0 5.31576 0.061849 5.43945 0.185547L9.81445 4.56055C9.93815 4.68424 10 4.83073 10 5Z"
-              fill="#2C2C2C"/>
+              fill="#2C2C2C"
+            />
           </svg>
           <b>Sort by:</b>
-          <span onClick={() => setOpen(!open)}>{sortSelected}</span>
+          <span onClick={() => setOpen(!open)}>{value.name}</span>
         </div>
-        {open && <div className="sort__popup">
-          <ul>
-          {
-            sorts.map((sort, i) => 
-              <li 
-                key={i} 
-                onClick={() => onClickListItem(i)} 
-                className={selected === i ? 'active' : ''}>
-                {sort}
-              </li>)}
-          </ul>
-        </div>}
+        {open && (
+          <div className="sort__popup">
+            <ul>
+              {sorts.map((obj, i) => (
+                <li
+                  key={i}
+                  onClick={() => onClickListItem(obj)}
+                  className={value.sort === obj.sort ? "active" : ""}>
+                  {obj.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </>
   );
