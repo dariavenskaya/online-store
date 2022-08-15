@@ -5,7 +5,7 @@ import Sort from "../components/Sort";
 import Card from "../components/Card";
 import Skeleton from "../components/Card/Skeleton";
 
-function Home() {
+function Home({ searchValue, setSearchValue }) {
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [category, setCategory] = React.useState(0);
@@ -29,6 +29,18 @@ function Home() {
     window.scrollTo(0, 0);
   }, [category, sortType]);
 
+  const skeletons = [...new Array(5)].map((_, i) => <Skeleton key={i} />);
+  const products = items
+    .filter((obj) => {
+      if (
+        obj.title.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+    .map((obj) => <Card key={obj.id} {...obj} />);
   return (
     <>
       <div className="container">
@@ -39,11 +51,7 @@ function Home() {
           />
           <Sort value={sortType} onClickSort={(i) => setSortType(i)} />
         </div>
-        <div className="content__items">
-          {isLoading
-            ? [...new Array(5)].map((_, i) => <Skeleton key={i} />)
-            : items.map((item) => <Card key={item.id} {...item} />)}
-        </div>
+        <div className="content__items">{isLoading ? skeletons : products}</div>
       </div>
     </>
   );

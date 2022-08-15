@@ -1,8 +1,6 @@
 import React from "react";
 
 function Categories({ value, onClickCategory }) {
-  console.log(value);
-
   const categories = ["All", "Skincare", "Gatgets", "Accesories", "Perfume"];
 
   return (
