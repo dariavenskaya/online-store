@@ -1,5 +1,8 @@
 import React from "react";
 
+import { useSelector, useDispatch } from "react-redux";
+import { setCategoryId } from "../redux/slices/filterSlice";
+
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 import Card from "../components/Card";
@@ -8,16 +11,22 @@ import Skeleton from "../components/Card/Skeleton";
 import { SearchContext } from "../App";
 
 function Home() {
+  const categoryId = useSelector((state) => state.filter.categoryId);
+  const dispatch = useDispatch();
+
+  const onChangeCategory = (i) => {
+    dispatch(setCategoryId(i));
+  };
+
   const { searchValue } = React.useContext(SearchContext);
 
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [category, setCategory] = React.useState(0);
   const [sortType, setSortType] = React.useState({
     name: "popular first",
     sort: "rating&order=desc",
   });
-  const categoryID = category > 0 ? `category=${category}` : "";
+  const categoryID = categoryId > 0 ? `category=${categoryId}` : "";
   // const search = searchValue  ? `&search=${searchValue}` : "";
   // this is for search from server
   // but it doesnt work right with mockApi, so I did js search instead. It works just fine for a small project.
@@ -33,7 +42,7 @@ function Home() {
         setIsLoading(false);
       });
     window.scrollTo(0, 0);
-  }, [category, sortType]);
+  }, [categoryId, sortType]);
 
   const skeletons = [...new Array(4)].map((_, i) => <Skeleton key={i} />);
   const products = items
@@ -51,10 +60,7 @@ function Home() {
     <>
       <div className="container">
         <div className="content__top">
-          <Categories
-            value={category}
-            onClickCategory={(i) => setCategory(i)}
-          />
+          <Categories value={categoryId} onClickCategory={onChangeCategory} />
           <Sort value={sortType} onClickSort={(i) => setSortType(i)} />
         </div>
         <div className="content__items">{isLoading ? skeletons : products}</div>
