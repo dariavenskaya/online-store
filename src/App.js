@@ -1,61 +1,33 @@
-import "./App.scss";
+import "../src/styles/App.scss";
+
 import React from "react";
+import { Routes, Route } from "react-router-dom";
+
+// import { useSelector, useDispatch } from "react-redux";
+
 import Header from "./components/Header";
-import Categories from "./components/Categories";
-import Sort from "./components/Sort";
-import Card from "./components/Card";
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
+import NotFound from "./pages/NotFound";
 
-const data = [
-  {
-    title: 'Cheesburger',
-    price: '740'
-  },
-  {
-    title: 'Mexican',
-    price: '530'
-  },
-  {
-    title: 'Margarita',
-    price: '390'
-  },
-  {
-    title: 'Pepperoni',
-    price: '750'
-  },
-  {
-    title: 'Diablo',
-    price: '700'
-  },
-  {
-    title: 'Veggi',
-    price: '400'
-  }
-
-]
+export const SearchContext = React.createContext();
 
 function App() {
+  const [searchValue, setSearchValue] = React.useState("");
   return (
-    <div class="wrapper">
-      <Header />
-      <div class="content">
-        <div class="container">
-          <div class="content__top">
-            <Categories />
-            <Sort />
-          </div>
-          <h2 class="content__title">Все пиццы</h2>
-          <div class="content__items">
-
-            {data.map((item) =>  (
-                <Card
-                title={item.title}
-                price={item.price}
-                />
-                ))
-              }
+    <div className="wrapper">
+      <SearchContext.Provider value={{ searchValue, setSearchValue }}>
+        <Header />
+        <div className="content">
+          <div className="center">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="cart" element={<Cart />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </div>
         </div>
-      </div>
+      </SearchContext.Provider>
     </div>
   );
 }

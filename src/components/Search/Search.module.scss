@@ -1,0 +1,53 @@
+@import "/src/styles/variables.scss";
+.input {
+  width: 150px;
+  border: 1px solid $background;
+  padding: 10px 50px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 300;
+  color: $background;
+  transition: ease-in-out 0.3s;
+  &:focus {
+    outline: none;
+    border: 2px solid $background;
+    color: black;
+    width: 270px;
+  }
+}
+.root {
+  display: flex;
+  position: relative;
+}
+.icon {
+  position: absolute;
+  top: 8px;
+  left: 15px;
+  opacity: 0.7;
+  transition: ease-in-out 0.3s;
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+}
+
+.clear {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  opacity: 0.7;
+  transition: ease-in-out 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 430px) {
+  .input {
+    width: 80px;
+    &:focus {
+      width: 200px;
+    }
+  }
+}
