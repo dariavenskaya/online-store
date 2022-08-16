@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 function Cart() {
   return (
     <>
-      <div class="cart">
+      <div className="cart">
         <div className="container container--cart">
-          <div class="cart__top">
+          {/* <div class="cart__top">
             <h2 class="content__title">
               <svg
                 width="18"
@@ -93,8 +93,8 @@ function Cart() {
               {" "}
               Сумма заказа: <b>1350 ₽</b>{" "}
             </span>
-          </div>
-          <div class="cart__bottom-buttons">
+          </div> */}
+          <div className="cart__bottom-buttons">
             <Link
               className="button button--outline go-back-btn"
               style={{ textDecoration: "none" }}
@@ -108,14 +108,14 @@ function Cart() {
                 <path
                   d="M7 13L1 6.93015L6.86175 1"
                   stroke="#D3D3D3"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path>
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"></path>
               </svg>
-              <span>Вернуться назад</span>
+              <span>Let's go shopping!</span>
             </Link>
-            <div class="button pay-btn">
-              <span>Оплатить сейчас</span>
+            <div className="button pay-btn">
+              <span>Pay now</span>
             </div>
           </div>
         </div>
