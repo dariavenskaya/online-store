@@ -11,7 +11,7 @@ import Skeleton from "../components/Card/Skeleton";
 import { SearchContext } from "../App";
 
 function Home() {
-  const categoryId = useSelector((state) => state.filter.categoryId);
+  const { categoryId, sort } = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 
   const onChangeCategory = (i) => {
@@ -22,10 +22,6 @@ function Home() {
 
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [sortType, setSortType] = React.useState({
-    name: "popular first",
-    sort: "rating&order=desc",
-  });
   const categoryID = categoryId > 0 ? `category=${categoryId}` : "";
   // const search = searchValue  ? `&search=${searchValue}` : "";
   // this is for search from server
@@ -34,7 +30,7 @@ function Home() {
   React.useEffect(() => {
     setIsLoading(true);
     fetch(
-      `https://62f7c196ab9f1f8e8902d90e.mockapi.io/items?${categoryID}&sortBy=${sortType.sort}`
+      `https://62f7c196ab9f1f8e8902d90e.mockapi.io/items?${categoryID}&sortBy=${sort.sort}`
     )
       .then((response) => response.json())
       .then((json) => {
@@ -42,7 +38,7 @@ function Home() {
         setIsLoading(false);
       });
     window.scrollTo(0, 0);
-  }, [categoryId, sortType]);
+  }, [categoryId, sort.sort]);
 
   const skeletons = [...new Array(4)].map((_, i) => <Skeleton key={i} />);
   const products = items
@@ -61,7 +57,7 @@ function Home() {
       <div className="container">
         <div className="content__top">
           <Categories value={categoryId} onClickCategory={onChangeCategory} />
-          <Sort value={sortType} onClickSort={(i) => setSortType(i)} />
+          <Sort />
         </div>
         <div className="content__items">{isLoading ? skeletons : products}</div>
       </div>
@@ -70,3 +66,4 @@ function Home() {
 }
 
 export default Home;
+//value={sortType} onClickSort={(i) => setSortType(i)}

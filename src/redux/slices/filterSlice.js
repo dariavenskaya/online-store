@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   categoryId: 0,
-  // sort: {
-  //   name: "popular first",
-  //   sort: "rating&order=desc",
-  // },
+  sort: {
+    name: "popular first",
+    sort: "rating&order=desc",
+  },
 };
 
 export const filterSlice = createSlice({
@@ -15,17 +15,14 @@ export const filterSlice = createSlice({
     setCategoryId: (state, action) => {
       state.categoryId = action.payload;
     },
-    //   decrement: (state) => {
-    //     state.value -= 1;
-    //   },
-    //   incrementByAmount: (state, action) => {
-    //     state.value += action.payload;
-    //   },
+    setSort: (state, action) => {
+      state.sort = action.payload;
+    },
   },
 });
 
 // console.log(filterSlice);
 
-export const { setCategoryId } = filterSlice.actions;
+export const { setCategoryId, setSort } = filterSlice.actions;
 
 export default filterSlice.reducer;
