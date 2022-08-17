@@ -1,9 +1,18 @@
 import React from "react";
+
+// import debounce from "lodash.debounce";
+
 import styles from "./Search.module.scss";
 import { SearchContext } from "../../App";
 
 function Sort() {
   const { searchValue, setSearchValue } = React.useContext(SearchContext);
+
+  const inputRef = React.useRef();
+  const onClickClear = () => {
+    setSearchValue("");
+    inputRef.current.focus();
+  };
 
   return (
     <div className={styles.root}>
@@ -21,6 +30,7 @@ function Sort() {
         </g>
       </svg>
       <input
+        ref={inputRef}
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
         className={styles.input}
@@ -29,7 +39,7 @@ function Sort() {
       />
       {searchValue && (
         <svg
-          onClick={() => setSearchValue("")}
+          onClick={onClickClear}
           className={styles.clear}
           xmlns="http://www.w3.org/2000/svg"
           id="Outline"
