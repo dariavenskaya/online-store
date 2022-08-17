@@ -7,7 +7,7 @@ function Cart() {
     <>
       <div className="cart">
         <div className="container container--cart">
-          {/* <div class="cart__top">
+          <div class="cart__top">
             <h2 class="content__title">
               <svg
                 width="18"
@@ -87,13 +87,13 @@ function Cart() {
           <div class="cart__bottom-details">
             <span>
               {" "}
-              Всего пицц: <b>3 шт.</b>{" "}
+              Total count: <b>2 шт.</b>{" "}
             </span>
             <span>
               {" "}
-              Сумма заказа: <b>1350 ₽</b>{" "}
+              Total price: <b>1350 ₽</b>{" "}
             </span>
-          </div> */}
+          </div>
           <div className="cart__bottom-buttons">
             <Link
               className="button button--outline go-back-btn"

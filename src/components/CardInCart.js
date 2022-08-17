@@ -6,13 +6,13 @@ function CardInCart() {
       <div class="cart__item-img">
         <img
           class="pizza-block__image"
-          src="https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d48003cd-902c-420d-9f28-92d9dc5f73b4.jpg"
-          alt="Pizza"
+          src="https://images.unsplash.com/photo-1491947153227-33d59da6c448?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80"
+          alt="product"
         />
       </div>
       <div class="cart__item-info">
-        <h3>Маргарита</h3>
-        <p>тонкое, 26 см. </p>
+        <h3>Keyboard</h3>
+        <p>white, l </p>
       </div>
       <div class="cart__item-count">
         <button
@@ -50,7 +50,7 @@ function CardInCart() {
         </button>
       </div>
       <div class="cart__item-price">
-        <b>450 ₽</b>
+        <b>200 $</b>
       </div>
       <div class="cart__item-remove">
         <div class="button button--outline button--circle">
