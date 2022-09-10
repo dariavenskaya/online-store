@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const EmptyCart = () => {
   return (
-    <div style={{ marginBottom: "50px" }} class="cart cart--empty">
+    <div style={{ marginBottom: "50px" }} className="cart cart--empty">
       <h2>
-        The cart is empty <span>😕</span>
+        Your cart is empty<span>😕</span>
       </h2>
       <p>
         You didn't order anything
@@ -15,7 +15,7 @@ const EmptyCart = () => {
       <img src="empty-cart.png" alt="Empty cart" />
       <Link
         style={{ textDecoration: "none" }}
-        class="button button--black"
+        className="button button--black"
         to="/">
         <span>Go back</span>
       </Link>
